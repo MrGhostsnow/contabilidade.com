@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react"; // Importe useState
 import {
   PlansContainer,
   Highlight,
@@ -14,6 +14,8 @@ import {
   PlanDescription,
   BenefitList,
   BenefitItem,
+  ToggleWrapper,
+  ToggleSwitch,
 } from "./styled";
 import Button from "../Button/index";
 import checkIcon from "../../assets/check.png";
@@ -32,11 +34,11 @@ const plusMark = (
 const plansData = [
   {
     name: "Plano PJ",
-    price: 199,
-    originalPrice: 249,
+    price: { monthly: 199, annually: 199 * 10 },
+    originalPrice: { monthly: 249, annually: 249 * 12 },
     isHighlighted: true,
     description:
-      "Faturamento Mensal: ideal até 50 mil* Notas fiscais: até 10 notas/mês",
+      "Faturamento Mensal: ideal até 50 mil*\nNotas fiscais: até 10 notas/mês",
     benefits: [
       { text: "Abertura Gratuita", icon: checkMark },
       { text: "Certificado digital e-CNPJ", icon: checkMark },
@@ -54,11 +56,11 @@ const plansData = [
   },
   {
     name: "Plano PJ Plus",
-    price: 249,
-    originalPrice: 299,
+    price: { monthly: 249, annually: 249 * 10 },
+    originalPrice: { monthly: 299, annually: 299 * 12 },
     isHighlighted: false,
     description:
-      "Faturamento Mensal: ideal até 100 mil* Notas fiscais: até 50 notas/mês",
+      "Faturamento Mensal: ideal até 100 mil*\nNotas fiscais: até 50 notas/mês",
     benefits: [
       { text: "Tudo que contém o Plano PJ", icon: checkMark },
       { text: "Entrega do IRPF de 1 sócio(a)", icon: plusMark },
@@ -69,11 +71,11 @@ const plansData = [
   },
   {
     name: "Plano PJ VIP",
-    price: 329,
-    originalPrice: 499,
+    price: { monthly: 329, annually: 329 * 10 },
+    originalPrice: { monthly: 499, annually: 499 * 12 },
     isHighlighted: false,
     description:
-      "Faturamento Mensal: ideal até 100 mil* Notas fiscais: até 100 notas/mês",
+      "Faturamento Mensal: ideal até 100 mil*\nNotas fiscais: até 100 notas/mês",
     benefits: [
       { text: "Tudo que contém o Plano PJ e Plus", icon: checkMark },
       { text: "Gestão financeira completa", icon: plusMark },
@@ -86,6 +88,14 @@ const plansData = [
 ];
 
 const PricePlans = () => {
+  const [isAnnual, setIsAnnual] = useState(false);
+
+  const togglePrice = () => {
+    setIsAnnual(!isAnnual);
+  };
+
+  const selectedPriceKey = isAnnual ? "annually" : "monthly";
+
   return (
     <PlansContainer>
       <PlansTitle>
@@ -100,20 +110,42 @@ const PricePlans = () => {
         </VideoButtonWrap>
         Entenda os planos
       </VideoPrompt>
+      {/* Adicione o seletor aqui */}
+      <ToggleWrapper>
+        <span>Mensal</span>
+        <ToggleSwitch>
+          <input type="checkbox" checked={isAnnual} onChange={togglePrice} />
+          <span></span>
+        </ToggleSwitch>
+        <span>Anual</span>
+      </ToggleWrapper>
       <CardsWrapper>
         {plansData.map((plan, index) => (
           <PlanCard key={index} highlighted={plan.isHighlighted}>
-            {plan.isHighlighted && <HighlightTag>MAIS CONTRATADO</HighlightTag>}
+            {plan.isHighlighted && (
+              <HighlightTag highlighted={plan.isHighlighted}>
+                MAIS CONTRATADO
+              </HighlightTag>
+            )}
             <PlanTitle>{plan.name}</PlanTitle>
             <PlanPrice>
               <text>de</text>
-              <span> R${plan.originalPrice}</span>
+              <span> R${plan.originalPrice[selectedPriceKey]}</span>
               <text>por a partir de </text>
               <text>R$</text>
-              {plan.price}
-              <text style={{ color: "#B8B8B8" }}>/MENSAL</text>
+              {plan.price[selectedPriceKey]}
+              <text style={{ color: "#B8B8B8" }}>
+                {isAnnual ? "/ANUAL" : "/MENSAL"}
+              </text>
             </PlanPrice>
-            <PlanDescription>{plan.description}</PlanDescription>
+            <PlanDescription>
+              {plan.description.split("\n").map((line, i) => (
+                <span key={i}>
+                  {line}
+                  <br />
+                </span>
+              ))}
+            </PlanDescription>
             <BenefitList>
               {plan.benefits.map((benefit, i) => (
                 <BenefitItem key={i}>
@@ -124,9 +156,9 @@ const PricePlans = () => {
             </BenefitList>
             <div
               style={{
-                alignItems: "flex-end",
-                justifyContent: "center",
                 display: "flex",
+                justifyContent: "center",
+                alignItems: "flex-end",
                 height: "100%",
               }}
             >

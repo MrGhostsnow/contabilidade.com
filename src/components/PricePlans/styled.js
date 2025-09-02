@@ -20,6 +20,11 @@ export const PlansTitle = styled.h2`
   font-weight: 500;
   margin-bottom: 3rem;
   width: 504px;
+
+  @media (max-width: 524px) {
+    width: 350px;
+    font-size: 26px;
+  }
 `;
 
 export const VideoPrompt = styled.div`
@@ -64,7 +69,7 @@ export const CardsWrapper = styled.div`
 
 export const PlanCard = styled.div`
   background-color: ${({ theme }) => theme.colors.cardBackground};
-  border-radius: 12px;
+  border-radius: 32px;
   padding: 2rem;
   //text-align: left;
   box-shadow: ${({ theme }) => theme.boxShadow};
@@ -81,6 +86,10 @@ export const PlanCard = styled.div`
     border-color: #2BBE41;
     border-width: 2px; 
   `}
+
+  @media (max-width: 524px) {
+    width: 270px;
+  }
 `;
 
 export const HighlightTag = styled.div`
@@ -95,21 +104,6 @@ export const HighlightTag = styled.div`
   font-size: 0.8rem;
   font-weight: 600;
   white-space: nowrap;
-
-  // Estilos para a borda arredondada na parte superior do card destacado
-  ${(props) =>
-    props.highlighted &&
-    `
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    right: -1px;
-    transform: none;
-    border-radius: 12px 12px 0 0;
-    padding: 1rem 0;
-    text-align: center;
-    font-size: 1rem;
-  `}
 `;
 
 export const PlanTitle = styled.h3`
@@ -143,6 +137,7 @@ export const PlanDescription = styled.p`
   color: #4c5157;
   line-height: 2;
   margin-bottom: 2rem;
+  white-space: pre-line;
 `;
 
 export const BenefitList = styled.ul`
@@ -160,4 +155,63 @@ export const BenefitItem = styled.li`
   color: ${({ theme }) => theme.colors.textLight};
   margin-bottom: 0.75rem;
   gap: 12px;
+`;
+
+export const ToggleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: ${({ theme }) => theme.colors.textLight};
+
+  span {
+    margin: 0 1rem;
+    font-weight: 600;
+  }
+`;
+
+export const ToggleSwitch = styled.label`
+  position: relative;
+  display: inline-block;
+  width: 95px;
+  height: 34px;
+  cursor: pointer;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+
+  span:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+
+  input:checked + span {
+    background-color: ${({ theme }) => theme.colors.secondary};
+  }
+
+  input:checked + span:before {
+    transform: translateX(26px);
+  }
 `;

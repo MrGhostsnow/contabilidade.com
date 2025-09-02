@@ -16,6 +16,11 @@ export const Title = styled.h2`
   font-weight: 600;
   margin-bottom: 2rem;
   width: 610px;
+
+  @media (max-width: 524px) {
+    width: 350px;
+    font-size: 2rem;
+  }
 `;
 
 export const Highlight = styled.span`
@@ -26,6 +31,14 @@ export const Table = styled.div`
   padding: 2rem;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 524px) {
+    padding: 1rem;
+  }
+
+  @media (max-width: 375px) {
+    padding: 0rem;
+  }
 `;
 
 export const TableHeader = styled.div`
@@ -35,6 +48,7 @@ export const TableHeader = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
   padding-bottom: 1rem;
   margin-bottom: 1rem;
+  align-items: center;
 `;
 
 export const TableRow = styled.div`
@@ -61,6 +75,14 @@ export const Cell = styled.div`
     font-weight: 500;
     font-size: 18px;
     color: ${({ theme }) => theme.colors.black};
+
+    @media (max-width: 524px) {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 524px) {
+    font-size: 15px;
   }
 `;
 
