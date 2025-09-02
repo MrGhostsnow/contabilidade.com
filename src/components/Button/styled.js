@@ -21,12 +21,11 @@ export const StyledButton = styled.button`
     props.variant === "secondary" &&
     `
     background-color: transparent;
-    color: ${({ theme }) => theme.colors.primary};
-    border: 1px solid ${({ theme }) => theme.colors.primary};
+    color: #3876FD;
+    border: 1px solid #3876FD;
 
     &:hover {
-      background-color: ${({ theme }) =>
-        theme.colors.primary}1A; /* Adiciona transparência */
+      background-color: #E6F0FF;
     }
   `}
 `;

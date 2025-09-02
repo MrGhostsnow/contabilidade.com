@@ -5,18 +5,21 @@ export const PlansContainer = styled.div`
   margin: 4rem auto;
   text-align: center;
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Highlight = styled.span`
+  color: ${({ theme }) => theme.colors.secondary};
 `;
 
 export const PlansTitle = styled.h2`
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-`;
-
-export const PlansSubtitle = styled.p`
-  color: ${({ theme }) => theme.colors.textLight};
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
+  font-size: 34px;
+  font-weight: 500;
+  margin-bottom: 3rem;
+  width: 504px;
 `;
 
 export const VideoPrompt = styled.div`
@@ -24,13 +27,27 @@ export const VideoPrompt = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 3rem;
+  font-size: 1rem;
+  font-weight: 600;
+`;
 
-  img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 1rem;
-  }
+export const VideoButtonWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+`;
+
+export const PlayButton = styled.div`
+  display: flex;
+  border-radius: 50%;
+  width: 67px;
+  height: 67px;
+  background: #ebe6d7;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: -24px;
 `;
 
 export const CardsWrapper = styled.div`
@@ -49,17 +66,20 @@ export const PlanCard = styled.div`
   background-color: ${({ theme }) => theme.colors.cardBackground};
   border-radius: 12px;
   padding: 2rem;
-  text-align: left;
+  //text-align: left;
   box-shadow: ${({ theme }) => theme.boxShadow};
   position: relative;
   width: 300px;
   border: 1px solid ${({ theme }) => theme.colors.border};
 
+  display: flex;
+  flex-direction: column;
+
   ${(props) =>
     props.highlighted &&
     `
-    background-color: ${({ theme }) => theme.colors.cardBackgroundHighlighted};
-    border-color: ${({ theme }) => theme.colors.secondary};
+    border-color: #2BBE41;
+    border-width: 2px; 
   `}
 `;
 
@@ -68,55 +88,76 @@ export const HighlightTag = styled.div`
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: ${({ theme }) => theme.colors.secondary};
+  background-color: #2bbe41;
   color: #fff;
   padding: 6px 16px;
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
   white-space: nowrap;
+
+  // Estilos para a borda arredondada na parte superior do card destacado
+  ${(props) =>
+    props.highlighted &&
+    `
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    transform: none;
+    border-radius: 12px 12px 0 0;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 1rem;
+  `}
 `;
 
 export const PlanTitle = styled.h3`
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 34px;
 `;
 
 export const PlanPrice = styled.div`
-  font-size: 2rem;
-  font-weight: 600;
-  color: ${({ theme }) => theme.colors.primary};
+  font-size: 42px;
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.black};
   margin-bottom: 1rem;
 
   span {
     font-size: 1rem;
     font-weight: 400;
-    color: ${({ theme }) => theme.colors.textLight};
+    color: ${({ theme }) => theme.colors.red};
     text-decoration: line-through;
-    margin-right: 0.5rem;
+    margin-right: 0.4rem;
+  }
+
+  text {
+    font-size: 1rem;
+    font-weight: 400;
+    color: ${({ theme }) => theme.colors.black};
+    margin-right: 0.3rem;
   }
 `;
 
 export const PlanDescription = styled.p`
   font-size: 0.9rem;
-  color: ${({ theme }) => theme.colors.textLight};
+  color: #4c5157;
+  line-height: 2;
   margin-bottom: 2rem;
 `;
 
 export const BenefitList = styled.ul`
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
 `;
 
 export const BenefitItem = styled.li`
   display: flex;
   align-items: center;
   font-size: 0.9rem;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.textLight};
   margin-bottom: 0.75rem;
-
-  img {
-    width: 16px;
-    height: 16px;
-    margin-right: 8px;
-  }
+  gap: 12px;
 `;
