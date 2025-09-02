@@ -28,7 +28,13 @@ const checkMark = (
 );
 
 const plusMark = (
-  <img src={plusIcon} alt="Plus mark" width="10px" height="10px" />
+  <img
+    src={plusIcon}
+    alt="Plus mark"
+    width="14px"
+    height="14px"
+    style={{ padding: "0 4px" }}
+  />
 );
 
 const plansData = [
@@ -148,10 +154,22 @@ const PricePlans = () => {
             </PlanDescription>
             <BenefitList>
               {plan.benefits.map((benefit, i) => (
-                <BenefitItem key={i}>
-                  {benefit.icon}
-                  {benefit.text}
-                </BenefitItem>
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "16px" }}
+                  key={i}
+                >
+                  <BenefitItem
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      justifyContent: "flex-start",
+                    }}
+                    key={i}
+                  >
+                    {benefit.icon}
+                  </BenefitItem>
+                  <BenefitItem>{benefit.text}</BenefitItem>
+                </div>
               ))}
             </BenefitList>
             <div

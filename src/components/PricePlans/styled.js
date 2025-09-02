@@ -74,7 +74,7 @@ export const PlanCard = styled.div`
   //text-align: left;
   box-shadow: ${({ theme }) => theme.boxShadow};
   position: relative;
-  width: 300px;
+  width: 278px;
   border: 1px solid ${({ theme }) => theme.colors.border};
 
   display: flex;
@@ -140,7 +140,7 @@ export const PlanDescription = styled.p`
   white-space: pre-line;
 `;
 
-export const BenefitList = styled.ul`
+export const BenefitList = styled.div`
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
@@ -148,7 +148,7 @@ export const BenefitList = styled.ul`
   text-align: left;
 `;
 
-export const BenefitItem = styled.li`
+export const BenefitItem = styled.div`
   display: flex;
   align-items: center;
   font-size: 0.9rem;
