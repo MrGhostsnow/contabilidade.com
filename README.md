@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+<h1 align="center">Projeto de Landing Page Contábil</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## :memo: Descrição
+Este projeto é uma landing page responsiva criada com React.js e estilizada com Styled Components. O objetivo foi replicar um design de duas seções, com ênfase em modularidade, boas práticas de desenvolvimento e interatividade. 
 
-## Available Scripts
+## :books: Funcionalidades
+- Design Responsivo: O layout se adapta a diferentes tamanhos de tela (desktop, tablet, mobile), garantindo uma experiência de usuário consistente em qualquer dispositivo.
 
-In the project directory, you can run:
+- Componentização: A interface foi dividida em componentes reutilizáveis e isolados (Button, PlanCard, etc.), seguindo o princípio de componentes do React para facilitar a manutenção e escalabilidade.
 
-### `npm start`
+- Styled Components: Toda a estilização foi feita usando a biblioteca Styled Components, aproveitando o poder do CSS-in-JS, o que permite o uso de temas e estilos dinâmicos baseados em props.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Gerenciamento de Estado: Adição de um seletor de preços que alterna entre a exibição mensal e anual dos planos. Isso demonstra o uso do hook useState para gerenciar o estado da aplicação de forma eficiente.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Otimização de Código: Utilização de uma arquitetura limpa com separação de responsabilidades (componentes e estilos em arquivos separados).
 
-### `npm test`
+## :wrench: Tecnologias utilizadas
+* React.js: Biblioteca JavaScript para construção de interfaces de usuário.
+* Styled Components: Biblioteca para estilização via CSS-in-JS.
+* HTML
+* Styled-components
+* Jest
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## :rocket: Rodando o projeto
+Para rodar o repositório é necessário clonar o mesmo, dar o seguinte comando para iniciar o projeto:
+```
+npm install
+```
+Inicie a aplicação em modo de desenvolvimento:
+```
+npm start
+```
